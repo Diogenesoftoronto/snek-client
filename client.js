@@ -1,5 +1,5 @@
 const net = require('net');
-
+const setup = require("/home/dio/lighthouse/w2/d3-net/snek-client/setupInput.js")
 const connect = function () {
   const conn = net.createConnection({
     host: "165.227.47.243", // IP address here,
@@ -11,6 +11,8 @@ const connect = function () {
   });
   conn.on("connect", () => {
     conn.write("Name: Dio" )
+
+
     console.log('connection established')
   })
 
