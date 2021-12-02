@@ -7,6 +7,4 @@ const setupInput = require("/home/dio/lighthouse/w2/d3-net/snek-client/setupInpu
 console.log("Connecting ...");
 // establishes a connection with the game server
 
-connect();
-
-setupInput(connect)
+setupInput(connect());

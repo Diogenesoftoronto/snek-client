@@ -1,6 +1,5 @@
-// setup interface to handle user input from stdin
 let connection;
-
+// setup interface to handle user input from stdin
 const setupInput = function (conn) {
   connection = conn;
   const stdin = process.stdin;
@@ -10,25 +9,36 @@ const setupInput = function (conn) {
   stdin.on("data", handleUserInput);
   return stdin;  
 }
-// does not work
+
 const handleUserInput = function (key) {
-  // your code here
+  
   // \u0003 maps to ctrl+c input
-  if (key === '\u0003') {
-    process.exit();
-  };
-  if (key === '\u2190') {
-    conn.write('Move: left')
-  };
-  if (key === '\u2191') {
-    conn.write('Move: up')
-  };
-  if (key === '\u2192') {
-    conn.write('Move: right')
-  };
-  if (key === '\u2193') {
-    conn.write('Move: down')
-  };
+  switch (key){
+    
+    case '\u0003':
+      process.exit();
+    case 'a':
+      connection.write('Move: left')
+      break;
+    case 'w':
+      connection.write('Move: up')
+      break;
+    case 'd':
+      connection.write('Move: right')
+      break;
+    case 's':
+      connection.write('Move: down')
+      break; 
+    case 'h':
+      connection.write('Say: topkek')
+      break;
+    case 'l':
+      connection.write('Say: u snooze u lose')
+      break;
+    default:
+      connection.write('Say: kono dio da')
+    }
+
 };
 
 module.exports = setupInput;
